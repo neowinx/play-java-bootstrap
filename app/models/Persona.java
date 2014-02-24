@@ -24,6 +24,9 @@ public class Persona extends Model {
     @Formats.DateTime(pattern="yyyy-MM-dd")
     public Date fechaNacimiento;
 
+  @OneToOne
+  public Usuario usuario;
+
     public static Finder<Long,Persona> find = new Finder<Long,Persona>(Long.class, Persona.class);
 
     /**
