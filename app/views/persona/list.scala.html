@@ -1,0 +1,36 @@
+@(personas: com.avaje.ebean.Page[Persona])
+
+@import tags._
+
+@main {
+    <h1>@Messages("persona_")</h1>
+
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+              @theader("persona_.nombre")
+              @theader("persona_.apellido")
+              @theader("persona_.fechaNacimiento")
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @for(per <- personas.getList) {
+            <tr>
+                <td><a href="/persona/@per.id">@per.nombre</a></td>
+                <td>@per.apellido</td>
+                <td>
+                  @if(per.fechaNacimiento != null) {
+                    @per.fechaNacimiento.format("dd MMM yyyy")
+                  }
+                </td>
+            </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+}
