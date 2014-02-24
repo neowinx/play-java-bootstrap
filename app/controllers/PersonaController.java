@@ -17,9 +17,9 @@ public class PersonaController extends Controller {
 		return ok(index.render());
 	}
 
-	public static Result list(Integer page, Integer size, String filter){
-		Page<Persona> personas = Persona.page(page, size, "nombre", "asc", filter);
-		return ok(views.html.persona.list.render(personas));
+	public static Result list(Integer page, Integer size, String sortBy, String filter){
+		Page<Persona> personas = Persona.page(page, size, sortBy, "asc", filter);
+		return ok(views.html.persona.list.render(personas, sortBy));
 	}
 
 	public static Result edit(Long id){

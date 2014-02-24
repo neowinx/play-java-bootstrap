@@ -5,7 +5,7 @@
 # Home page
 GET     /                        controllers.Application.index
 
-GET     /persona                 controllers.PersonaController.list(p:Int ?= 0, s:Int ?= 5, f ?= "")
+GET     /persona                 controllers.PersonaController.list(p:Int ?= 0, s:Int ?= 5, sb ?= "nombre", f ?= "")
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
