@@ -1,0 +1,31 @@
+@(id: Long, personaForm: Form[Persona])
+
+@import helper._
+
+@main {
+
+    <h1>@Messages("msg_edit") @Messages("persona_")</h1>
+    
+    @form(routes.PersonaController.update(id)) {
+        
+        <fieldset>
+        
+            @inputText(personaForm("nombre"), '_label -> Messages("persona_.nombre"))
+            @inputText(personaForm("apellido"), '_label -> Messages("persona_.apellido"))
+            @inputDate(personaForm("fechaNacimiento"), '_label -> Messages("persona_.fechaNacimiento"))
+       
+        </fieldset>
+        
+        <div class="btn-group">
+            <input type="submit" value="@Messages("msg_save")" class="btn primary">
+            <a href="@routes.PersonaController.list()" class="btn">@Messages("msg_cancel")</a> 
+            @if(id != null) {
+              @form(routes.PersonaController.delete(id)) {
+                  <input type="submit" value="@Messages("msg_delete")" class="btn btn-danger" onclick="return confirm('Esta seguro que desea eliminar el registro?')">
+              }
+            }
+        </div>
+        
+    }
+
+}
