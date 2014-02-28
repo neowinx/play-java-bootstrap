@@ -38,11 +38,11 @@ public class PersonaController extends Controller {
   }
 
   public static Result edit(Long id){
-    Form<Persona> computerForm = form(Persona.class).fill(
+    Form<Persona> personaForm = form(Persona.class).fill(
       Persona.find.byId(id)
     );
     return ok(
-      views.html.persona.edit.render(id, computerForm)
+      views.html.persona.edit.render(id, personaForm)
     );
   }
 
