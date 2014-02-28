@@ -57,6 +57,11 @@
         </div>
 
         <div class="container">
+    @if(flash.containsKey("success")) {
+      <div class="alert-message warning">
+        <strong>@flash.get("success")</strong>
+      </div>
+    }
         @content
         </div>
     </body>

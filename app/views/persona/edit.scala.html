@@ -23,7 +23,7 @@
             <a href="@routes.PersonaController.list()" class="btn">@Messages("msg_cancel")</a> 
             @if(id != null) {
               @form(routes.PersonaController.delete(id)) {
-                  <input type="submit" value="@Messages("msg_delete")" class="btn btn-danger" onclick="return confirm('Esta seguro que desea eliminar el registro?')">
+                  <input type="submit" value="@Messages("msg_delete")" class="btn btn-danger" onclick="return confirm('@Messages("msg_delete_question")')">
               }
             }
         </div>
